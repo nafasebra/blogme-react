@@ -2,7 +2,6 @@ import React from 'react'
 import bImage from './../img/background.png';
 
 export default function header() {
-    console.log(bImage);
     return (
         <header
             style={{backgroundImage: `url(${bImage})`}} 

@@ -1,12 +1,16 @@
 import React from 'react'
 
+import Content from './Content';
+
+import { Link } from 'react-router-dom';
+
 export default function post(props) {
-    let {image, headText, description} = props;
+    let {id, image, headText, description} = props;
     return (
         <div className="rounded overflow-hidden shadow-lg">
             <img className="w-full" src={image} alt="Mountain" />
             <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{headText}</div>
+                <Link to={'/post?id=' + id} component={Content} className="font-bold text-xl mb-2">{headText}</Link>
                 <p className="text-gray-700 text-base">{description}</p>
             </div>
             <div className="px-6 pt-4 pb-2">

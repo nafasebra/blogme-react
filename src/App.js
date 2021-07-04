@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Switch, Route } from 'react-router';
+
 // INCLUDE COMPONENT
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -12,12 +14,13 @@ import img2 from './img/2.jpg';
 import img3 from './img/3.jpg';
 
 // INCLUDE CONTEXT 
-import PostContext from './context/PostContext';
+import BlogContext from './context/BlogContext';
 
 export default function App() {
     
     const [Blog, setBlog] = useState([
         {
+            postID: 1,
             URLImage: img1,
             headText: 'Nature1',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -33,6 +36,7 @@ export default function App() {
                             Nisi vitae suscipit tellus mauris a diam maecenas sed. Placerat duis ultricies lacus sed turpis tincidunt id aliquet.`
         },
         {
+            postID: 2,
             URLImage: img2,
             headText: 'Nature2',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -48,6 +52,7 @@ export default function App() {
                             Nisi vitae suscipit tellus mauris a diam maecenas sed. Placerat duis ultricies lacus sed turpis tincidunt id aliquet.`
         },
         {
+            postID: 3,
             URLImage: img3,
             headText: 'Nature3',
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
@@ -65,32 +70,34 @@ export default function App() {
     ])
 
     return (
-        <div>
-            <Navbar />
-            <Header />
-            <section className="p-4">
-                <h3 className="font-thin text-4xl lg:text-7xl md:text-6xl sm:text-5xl text-center p-3">#blogs</h3>
-                <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-                    <Post 
-                        image={img1}
-                        headText="Nature1" 
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                        />
-                    <Post 
-                        image={img2}
-                        headText="Nature2" 
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                        />
-                    <Post 
-                        image={img3}
-                        headText="Nature3" 
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-                        />
-                </div>
-            </section>
+        <BlogContext.Provider value={{
+            blog: Blog
+        }}>
+            <>
+                <Navbar />
+                <Header />
+                <section className="p-4">
+                    <h3 className="font-thin text-4xl lg:text-7xl md:text-6xl sm:text-5xl text-center p-3">#blogs</h3>
+                    <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+                        <Route path="/" component={Post} exact>
+                            {
+                                Blog.map((item, key) => 
+                                    <Post 
+                                        key={key}
+                                        id={item.postID} 
+                                        image={item.URLImage} 
+                                        headText={item.headText} 
+                                        description={item.description}
+                                        />
+                                    )
+                            }
+                        </Route>
+                    </div>
+                </section>
 
-            <Footer />
-        </div>
+                <Footer />
+            </>
+        </BlogContext.Provider>
     )
 }
 
