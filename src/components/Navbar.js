@@ -13,9 +13,9 @@ export default function navbar() {
                 </svg>
             </div>
             <div className="pr-8 md:block hidden">
-                <Link to='/' className="p-4">home</Link>
-                <Link to='/about' className="p-4">about me</Link>
-                <Link to='/contact' className="p-4">contact me</Link>
+                <Link to='/' className="p-4">HOME</Link>
+                <Link to='/about' className="p-4">ABOUT ME</Link>
+                <Link to='/contact' className="p-4">CONTACT ME</Link>
             </div>
         </nav>
     )

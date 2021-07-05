@@ -2,11 +2,11 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 
 export default function Content() {
-    let { id } = useParams();
+    let { post } = useParams();
 
-    console.log( id );
+    console.log( post );
     
     return (
-        <div> OPEN CONTENT </div>
+        <div> OPEN CONTENT {post} </div>
     )
 }
