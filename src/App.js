@@ -9,6 +9,7 @@ import Posts from './components/Posts';
 import Footer from './components/Footer';
 import Aboutme from './components/Aboutme';
 import NotFound from './components/NotFound';
+import ContactMe from './components/ContactMe';
 
 // INCLUDE IMAGE
 import img1 from './img/1.jpg';
@@ -84,6 +85,7 @@ export default function App() {
                         <Posts />
                     </Route>
                     <Route path="/about" component={Aboutme} />
+                    <Route path="/contact" component={ContactMe} />
                     <Route path="*" component={NotFound} />
                 </Switch>
 
