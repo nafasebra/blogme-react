@@ -9,9 +9,9 @@ export default function post({id, image, headText, description}) {
     return (
         <>
             <div className="rounded overflow-hidden shadow-lg">
-                <img className="w-full" src={image} alt="Mountain" />
+                <img className="w-full" src={image} alt={headText} />
                 <div className="px-6 py-4">
-                    <Link to={`/${id}`} className="font-bold text-xl mb-2">{headText}</Link>
+                    <Link to={`/post/${id}`} className="font-bold text-xl mb-2">{headText}</Link>
                     <p className="text-gray-700 text-base">{description}</p>
                 </div>
                 <div className="px-6 pt-4 pb-2">
@@ -23,7 +23,7 @@ export default function post({id, image, headText, description}) {
             </div>
 
             <Switch>
-                <Route path="/:id" component={PostContect} />
+                <Route path="/post/:id" component={PostContect} />
             </Switch>
         
         </>

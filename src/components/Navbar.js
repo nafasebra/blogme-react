@@ -14,7 +14,6 @@ export default function navbar() {
             </div>
             <div className="pr-8 md:block hidden">
                 <Link to='/' className="p-4">home</Link>
-                <Link to='/blog' className="p-4">blog</Link>
                 <Link to='/about' className="p-4">about me</Link>
                 <Link to='/contact' className="p-4">contact me</Link>
             </div>
