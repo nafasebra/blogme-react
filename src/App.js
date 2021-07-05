@@ -5,8 +5,10 @@ import { Switch, Route } from 'react-router';
 // INCLUDE COMPONENT
 import Navbar from './components/Navbar';
 import Header from './components/Header';
-import Post from './components/Post';
+import Posts from './components/Posts';
 import Footer from './components/Footer';
+import Aboutme from './components/Aboutme';
+import NotFound from './components/NotFound';
 
 // INCLUDE IMAGE
 import img1 from './img/1.jpg';
@@ -75,25 +77,15 @@ export default function App() {
         }}>
             <>
                 <Navbar />
-                <Header />
-                <section className="p-4">
-                    <h3 className="font-thin text-4xl lg:text-7xl md:text-6xl sm:text-5xl text-center p-3">#blogs</h3>
-                    <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-                        <Route path="/" component={Post} exact>
-                            {
-                                Blog.map((item, key) => 
-                                    <Post 
-                                        key={key}
-                                        id={item.postID} 
-                                        image={item.URLImage} 
-                                        headText={item.headText} 
-                                        description={item.description}
-                                        />
-                                    )
-                            }
-                        </Route>
-                    </div>
-                </section>
+                
+                <Switch>
+                    <Route path="/" exact>
+                        <Header />
+                        <Posts />
+                    </Route>
+                    <Route path="/about" component={Aboutme} />
+                    <Route path="*" component={NotFound} />
+                </Switch>
 
                 <Footer />
             </>
