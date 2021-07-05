@@ -7,11 +7,13 @@ import { BrowserRouter, HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter getUserConfirmation={(message, callback) => {
-      // this is the default behavior
-      const allowTransition = window.confirm(message);
-      callback(allowTransition);
-    }}>
+    <HashRouter basename="/blogwebsite-react"
+      getUserConfirmation={(message, callback) => {
+        // this is the default behavior
+        const allowTransition = window.confirm(message);
+        callback(allowTransition);
+      }}
+    >
       <BrowserRouter>
         <App />
       </BrowserRouter>
