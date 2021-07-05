@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 
-<HashRouter basename="/blogwebsite-react"/>
+<HashRouter basename="https://nafasebra.github.io/blogwebsite-react/"/>
 
 ReactDOM.render(
   <React.StrictMode>
