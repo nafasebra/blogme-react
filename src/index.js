@@ -5,15 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, HashRouter } from 'react-router-dom';
 
-<HashRouter basename="https://nafasebra.github.io/blogwebsite-react/"/>
-
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter basename="https://nafasebra.github.io/blogwebsite-react/"
-                hashType="slash"
-                >
+    <BrowserRouter>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

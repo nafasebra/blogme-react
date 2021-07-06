@@ -5,6 +5,7 @@ Feature:
  - I use TailwindCSS library for UI project
  - I use Context for manage state
  - Nice UI :)
+ - Responsive
  - I use React-router for route path
 
 for clone the Repository:

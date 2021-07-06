@@ -23,7 +23,7 @@ export default function post({id, image, headText, description}) {
             </div>
 
             <Switch>
-                <Route path="/post/:post" children={<PostContect />} />
+                <Route path="/post/:postName" children={<PostContect />} />
             </Switch>
         
         </>
