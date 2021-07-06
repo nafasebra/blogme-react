@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import BlogContext from '../context/BlogContext';
 
@@ -8,9 +8,11 @@ export default function PostContent() {
     let { postName } = useParams();
     const { blog } = useContext(BlogContext);
 
+    useEffect(() => {
+        window.scrollTo(0 , 0);
+    })
+
     let currentBlog = blog.filter(item => item.headText === postName);
-    
-    console.log(currentBlog);
 
     return (
         <div className="flex justify-center container mx-auto pt-10 pb-10 p-3">
