@@ -6,6 +6,7 @@ import { Switch, Route } from 'react-router';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Posts from './components/Posts';
+import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Aboutme from './components/Aboutme';
 import NotFound from './components/NotFound';
