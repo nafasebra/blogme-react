@@ -4,7 +4,7 @@ import PostContect from './PostContent';
 
 import { Switch, Route, Link } from 'react-router-dom';
 
-export default function post({id, image, headText, description}) {
+export default function post({id, tags, image, headText, description}) {
 
     return (
         <>
@@ -15,9 +15,11 @@ export default function post({id, image, headText, description}) {
                     <p className="text-gray-700 text-base">{description}</p>
                 </div>
                 <div className="px-6 pt-4 pb-2">
-                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                    {
+                        tags.map((item, index) => <span key={index}
+                                                        className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                                                        >{item}</span>)
+                    }
                 </div>
                 
             </div>

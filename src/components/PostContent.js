@@ -20,6 +20,7 @@ export default function PostContent() {
                 <h2 className="font-bold text-5xl sm:text-4xl md:text-5xl lg:text-6xl pb-5">
                     { postName }
                 </h2>
+                <p className="p-2">{currentBlog[0].author + " - Updated on " + currentBlog[0].date}</p>
                 <img className="w-full mt-3 mb-4 rounded-2xl" src={currentBlog[0].URLImage} alt={postName} />
                 <p className="text-gray-700 text-base">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

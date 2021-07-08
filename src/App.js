@@ -27,7 +27,10 @@ export default function App() {
         {
             postID: 1,
             URLImage: img1,
+            author: 'nafasebra',
+            date: 'Tuesday, 6 July 2021',
             headText: 'Nature1',
+            tags: ['photography', 'spring', 'nature'],
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
             longDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Egestas purus viverra accumsan in nisl nisi.
@@ -43,7 +46,10 @@ export default function App() {
         {
             postID: 2,
             URLImage: img2,
+            author: 'nafasebra',
+            date: 'Wednesday, 7 July 2021',
             headText: 'Nature2',
+            tags: ['summer', 'lake', 'nature'],
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
             longDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Egestas purus viverra accumsan in nisl nisi.
@@ -59,7 +65,10 @@ export default function App() {
         {
             postID: 3,
             URLImage: img3,
+            author: 'nafasebra',
+            date: 'Thursday, 8 July 2021',
             headText: 'Nature3',
+            tags: ['lake', 'mountain'],
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
             longDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Egestas purus viverra accumsan in nisl nisi.

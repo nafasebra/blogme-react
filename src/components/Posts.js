@@ -13,6 +13,7 @@ export default function Posts() {
                             <Post 
                                 key={key}
                                 id={item.postID} 
+                                tags={item.tags}
                                 image={item.URLImage} 
                                 headText={item.headText} 
                                 description={item.description}
