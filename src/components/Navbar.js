@@ -28,6 +28,8 @@ function Navbar() {
                         <Link to='/' className="p-4">HOME</Link>
                         <Link to='/about' className="p-4">ABOUT ME</Link>
                         <Link to='/contact' className="p-4">CONTACT ME</Link>
+                        <Link to='/login' className="p-4">LOGIN</Link>
+                        <Link to='/signin' className="p-4">SIGNIN</Link>
                     </div>
                 </nav>
 

@@ -6,9 +6,10 @@ import { Switch, Route } from 'react-router';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
 import Posts from './components/Posts';
-import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Aboutme from './components/Aboutme';
+import Login from './components/auth/Login';
+import Signin from './components/auth/Signin';
 import NotFound from './components/NotFound';
 import ContactMe from './components/ContactMe';
 import PostContent from './components/PostContent';
@@ -95,6 +96,8 @@ export default function App() {
                         <Header />
                         <Posts />
                     </Route>
+                    <Route path="/login" component={Login}></Route>
+                    <Route path="/signin" component={Signin}></Route>
                     <Route path="/about" component={Aboutme} />
                     <Route path="/contact" component={ContactMe} />
                     <Route path="/post/:postName" component={PostContent}/>
