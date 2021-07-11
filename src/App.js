@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { Switch, Route } from 'react-router';
 
@@ -21,6 +21,7 @@ import img3 from './img/3.jpg';
 
 // INCLUDE CONTEXT 
 import BlogContext from './context/BlogContext';
+import { UserContext } from './context/UserProvider';
 
 export default function App() {
     
@@ -83,7 +84,10 @@ export default function App() {
                             Nisi vitae suscipit tellus mauris a diam maecenas sed. Placerat duis ultricies lacus sed turpis tincidunt id aliquet.`
         }
     ])
+    
 
+    const UContext = useContext(UserContext);
+    console.log(UContext);
     return (
         <BlogContext.Provider value={{
             blog: Blog
@@ -96,8 +100,14 @@ export default function App() {
                         <Header />
                         <Posts />
                     </Route>
-                    <Route path="/login" component={Login}></Route>
-                    <Route path="/signin" component={Signin}></Route>
+                    {
+                        UContext.isLogining === false ?
+                        <>
+                            <Route path="/login" component={Login}></Route>
+                            <Route path="/signin" component={Signin}></Route>
+                        </>
+                        : null
+                    }
                     <Route path="/about" component={Aboutme} />
                     <Route path="/contact" component={ContactMe} />
                     <Route path="/post/:postName" component={PostContent}/>

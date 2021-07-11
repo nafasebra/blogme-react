@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import Sidebar from './Sidebar';
 
 import { Link } from 'react-router-dom';
 import SidebarContext from '../context/SidebarContext';
+import { UserContext } from '../context/UserProvider';
+
 
 function Navbar() {
 
     const [openSidebar, setOpenSidebar] = useState(false);
+
+    const UContext = useContext(UserContext);
 
     return (
         <>
@@ -28,8 +32,14 @@ function Navbar() {
                         <Link to='/' className="p-4">HOME</Link>
                         <Link to='/about' className="p-4">ABOUT ME</Link>
                         <Link to='/contact' className="p-4">CONTACT ME</Link>
-                        <Link to='/login' className="p-4">LOGIN</Link>
-                        <Link to='/signin' className="p-4">SIGNIN</Link>
+                        {
+                            UContext.isLogining === false ?
+                            <>
+                                <Link to='/login' className="p-4">LOGIN</Link>
+                                <Link to='/signin' className="p-4">SIGNIN</Link>
+                            </>
+                            : null
+                        }
                     </div>
                 </nav>
 
