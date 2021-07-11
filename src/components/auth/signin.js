@@ -6,6 +6,8 @@ import { UserContext } from '../../context/UserProvider';
 function Signin() {
 
     const UContext = useContext(UserContext);
+    
+    let txtUsername , txtPassword, txtEmail;
 
     let SignIn = (username, password, email) => {
         UContext.setUserState(prevState => ({
@@ -57,24 +59,24 @@ function Signin() {
 
             <form className="px-8 pt-6 pb-8 mb-4" 
                     style={{width: '400px'}}
-                    onSubmit={() => SignIn}>
+                    onSubmit={() => SignIn(txtUsername, txtPassword, txtEmail)}>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" for="txtSigninUsername">
                         Username
                     </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="txtSigninUsername" type="text" placeholder="ex: nafas" />
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="txtSigninUsername" type="text" onChange={(e) => txtUsername = e.target.value} placeholder="ex: nafas" />
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" for="txtSignInEmail">
                         Email
                     </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="txtSignInEmail" type="email" placeholder="ex: example@domain.com" />
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="txtSignInEmail" type="email" onChange={(e) => txtEmail = e.target.value} placeholder="ex: example@domain.com" />
                 </div>
                 <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" for="password">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" for="txtSigninPassword">
                         Password
                     </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="txtSigninPassword" type="password" placeholder="type a password" />
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="txtSigninPassword" type="password" onChange={(e) => txtPassword = e.target.value} placeholder="type a password" />
                 </div>
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" 
                         type="submit">
