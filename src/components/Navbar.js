@@ -13,6 +13,14 @@ function Navbar() {
 
     const UContext = useContext(UserContext);
 
+    let { isLogining, currectUser } = UContext.user;
+
+    let logout = () => {
+        UContext.dispatch({
+            type: 'LogOut'
+        })
+    }
+
     return (
         <>
             <SidebarContext.Provider value={{
@@ -33,12 +41,15 @@ function Navbar() {
                         <Link to='/about' className="p-4">ABOUT ME</Link>
                         <Link to='/contact' className="p-4">CONTACT ME</Link>
                         {
-                            UContext.user.isLogining === false ?
+                            isLogining === false ?
                             <>
                                 <Link to='/login' className="p-4">LOGIN</Link>
                                 <Link to='/signin' className="p-4">SIGNIN</Link>
                             </>
-                            : <span className="p-4">{UContext.user.currectUser.name}</span>
+                            : 
+                            <span className="p-4" onClick={() => logout()}>
+                                {currectUser.name}
+                            </span>
                         }
                     </div>
                 </nav>
