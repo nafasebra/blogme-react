@@ -1,22 +1,17 @@
 function UserReducer(state, action){
     switch (action.type) {
-        case "SignIn":
-            break;
-        case "LogIn":
-            break;
-        case "LogOut":
-            break;
-        default:
-            return state;
+        case "SignIn": return SignIn(state, action);
+        case "LogIn": return LogIn(state, action);
+        case "LogOut": return LogOut(state);
+        default: return state;
     }
 }
 
 export default UserReducer;
 
 function SignIn(state, action){
-    let {e, username, email, password} = action.payload;
+    let {username, email, password} = action.payload;
 
-    e.preventDefault();
     return {
         users: [
             ...state.users,
@@ -35,9 +30,7 @@ function SignIn(state, action){
 }
 
 function LogIn(state, action){
-    let {e, username, password} = action.payload;
-
-    e.preventDefault();
+    let {username, password} = action.payload;
     
     state.users.forEach(item => {
         if(username === item.name && password === item.password){

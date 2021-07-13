@@ -1,10 +1,10 @@
 import React from 'react';
 
 const UserContext = React.createContext({
-    user: {
-        isLogining: false
-    },
-    setUser: () => {}
+    user: {},
+    SignIn: () => {},
+    LogIn: () => {},
+    LogOut: () => {}
 })
 
 

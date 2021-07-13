@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useReducer } from 'react';
 
 import { Switch, Route } from 'react-router';
 
@@ -23,8 +23,12 @@ import img3 from './img/3.jpg';
 import BlogContext from './context/BlogContext';
 import UserContext from './context/UserContext';
 
+//INCLUDE REDUCERS
+import UserReducer from './reducer/UserReducer';
+
 export default function App() {
     
+    // blog state for all posts
     const [Blog, setBlog] = useState([
         {
             postID: 1,
@@ -84,39 +88,54 @@ export default function App() {
                             Nisi vitae suscipit tellus mauris a diam maecenas sed. Placerat duis ultricies lacus sed turpis tincidunt id aliquet.`
         }
     ])
-    
 
-    const UContext = useContext(UserContext);
-    console.log(UContext);
+    // add initial value in state UserReducer file
+    const [userState, dispatch] = useReducer(UserReducer, {
+        users: [],
+        currentUser: {},
+        isLogining: false
+    })
+
+    // log, log and log :)
+    console.log("print setBlog method for fix debug");
     console.log(setBlog);
+
+    console.log(userState);
+    console.log(dispatch);
+
     return (
         <BlogContext.Provider value={{
             blog: Blog
         }}>
-            <>
-                <Navbar />
-                
-                <Switch>
-                    <Route path="/" exact>
-                        <Header />
-                        <Posts />
-                    </Route>
-                    {
-                        UContext.user.isLogining === false ?
-                        <>
-                            <Route path="/login" component={Login}></Route>
-                            <Route path="/signin" component={Signin}></Route>
-                        </>
-                        : null
-                    }
-                    <Route path="/about" component={Aboutme} />
-                    <Route path="/contact" component={ContactMe} />
-                    <Route path="/post/:postName" component={PostContent}/>
-                    <Route path="*" component={NotFound} />
-                </Switch>
+            <UserContext.Provider value={{
+                user: userState,
+                dispatch
+            }}>
+                <>
+                    <Navbar />
 
-                <Footer />
-            </>
+                    <Switch>
+                        <Route path="/" exact>
+                            <Header />
+                            <Posts />
+                        </Route>
+                        {
+                            userState.isLogining === false ?
+                            <>
+                                <Route path="/login" component={Login}></Route>
+                                <Route path="/signin" component={Signin}></Route>
+                            </>
+                            : null
+                        }
+                        <Route path="/about" component={Aboutme} />
+                        <Route path="/contact" component={ContactMe} />
+                        <Route path="/post/:postName" component={PostContent}/>
+                        <Route path="*" component={NotFound} />
+                    </Switch>
+
+                    <Footer />
+                </>
+            </UserContext.Provider>
         </BlogContext.Provider>
     )
 }

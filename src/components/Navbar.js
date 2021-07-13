@@ -38,7 +38,7 @@ function Navbar() {
                                 <Link to='/login' className="p-4">LOGIN</Link>
                                 <Link to='/signin' className="p-4">SIGNIN</Link>
                             </>
-                            : null
+                            : <span className="p-4">{UContext.user.currectUser.name}</span>
                         }
                     </div>
                 </nav>
