@@ -96,10 +96,6 @@ export default function App() {
         isLogining: false
     })
 
-    // log, log and log :)
-    console.log("print setBlog method for fix debug");
-    console.log(setBlog);
-
     return (
         <BlogContext.Provider value={{
             blog: Blog
