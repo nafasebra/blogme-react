@@ -1,11 +1,14 @@
 # BLOGME-A simple blog website
 ### BLOGME is the simple blog website that created React.js
 
+This project currently being developed :)
+
 Feature: 
  - I use TailwindCSS library for UI project
- - I use Context for manage state
+ - I use Context and useReducer hook for manage state
  - Nice UI :)
  - Responsive
+ - Login and Signin form
  - I use React-router for route path
 
 for clone the Repository:
