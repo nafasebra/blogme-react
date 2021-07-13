@@ -31,21 +31,23 @@ function SignIn(state, action){
 
 function LogIn(state, action){
     let {username, password} = action.payload;
-    
-    state.users.forEach(item => {
-        if(username === item.name && password === item.password){
-            return { 
-                ...state.users,
-                currectUser: {
-                    name: username,
-                    password: password
-                },
-                isLogining: true 
-            }
-        } else {
-            alert("Please Enter current username and password");
-        }
-    })
+
+    console.log('state in login method reducer...');
+    console.log(state)
+    // state.users.forEach(item => {
+    //     if(username === item.name && password === item.password){
+    //         return { 
+    //             users: [...state.users],
+    //             currectUser: {
+    //                 name: username,
+    //                 password: password
+    //             },
+    //             isLogining: true 
+    //         }
+    //     } else {
+    //         alert("Please Enter current username and password");
+    //     }
+    // })
 }
 
 function LogOut(state){

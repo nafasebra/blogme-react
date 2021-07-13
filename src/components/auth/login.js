@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import { Link } from 'react-router-dom'
 
+import UserContext from '../../context/UserContext';
+
 function Login() {
+
+    let txtUsername, txtPassword;
+    let UContext = useContext(UserContext);
+
+    let log_in = () => {
+        UContext.dispatch({
+            type: 'LogIn',
+            payload: {
+                username: txtUsername,
+                password: txtPassword
+            }
+        })
+    }
+
     return (
         <div className="flex justify-center items-center flex-col p-5 pt-20 pb-20">
             <h3 className="text-3xl text-center">LOG IN</h3>
@@ -10,22 +26,33 @@ function Login() {
                 Please enter your current Username and password that login to your Account.
             </div>
 
-            <form className="px-8 pt-6 pb-8 mb-4" style={{width: '400px'}}>
+            <form className="px-8 pt-6 pb-8 mb-4" 
+                style={{width: '400px'}}>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" for="txtLoginUsername">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" 
+                        for="txtLoginUsername">
                         Username
                     </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="txtLoginUsername" type="text" placeholder="ex: nafas" />
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                        id="txtLoginUsername" 
+                        type="text" 
+                        onChange={(e) => txtUsername = e.target.value}
+                        placeholder="ex: nafas" />
                 </div>
                 <div className="mb-6">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" for="txtLoginPassword">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" 
+                        for="txtLoginPassword">
                         Password
                     </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="txtLoginPassword" type="password" placeholder="type a password" />
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" 
+                        id="txtLoginPassword" 
+                        type="password" 
+                        onChange={(e) => txtPassword = e.target.value}
+                        placeholder="type a password" />
                 </div>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="button">
-                    Login
-                </button>
+                <Link to="/"
+                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+                     onClick={() => log_in()}>LOG IN</Link>
                 <div className="text-center p-3">
                     <Link to="/signin" className="text-blue-500">Have not a Account?</Link>
                 </div>

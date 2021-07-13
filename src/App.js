@@ -100,9 +100,6 @@ export default function App() {
     console.log("print setBlog method for fix debug");
     console.log(setBlog);
 
-    console.log(userState);
-    console.log(dispatch);
-
     return (
         <BlogContext.Provider value={{
             blog: Blog
