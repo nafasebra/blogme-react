@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 
 import { Link } from 'react-router-dom';
 import SidebarContext from '../context/SidebarContext';
-import { UserContext } from '../context/UserProvider';
+import UserContext from '../context/UserContext';
 
 
 function Navbar() {
@@ -33,7 +33,7 @@ function Navbar() {
                         <Link to='/about' className="p-4">ABOUT ME</Link>
                         <Link to='/contact' className="p-4">CONTACT ME</Link>
                         {
-                            UContext.isLogining === false ?
+                            UContext.user.isLogining === false ?
                             <>
                                 <Link to='/login' className="p-4">LOGIN</Link>
                                 <Link to='/signin' className="p-4">SIGNIN</Link>

@@ -21,7 +21,7 @@ import img3 from './img/3.jpg';
 
 // INCLUDE CONTEXT 
 import BlogContext from './context/BlogContext';
-import { UserContext } from './context/UserProvider';
+import UserContext from './context/UserContext';
 
 export default function App() {
     
@@ -88,6 +88,7 @@ export default function App() {
 
     const UContext = useContext(UserContext);
     console.log(UContext);
+    console.log(setBlog);
     return (
         <BlogContext.Provider value={{
             blog: Blog
@@ -101,7 +102,7 @@ export default function App() {
                         <Posts />
                     </Route>
                     {
-                        UContext.isLogining === false ?
+                        UContext.user.isLogining === false ?
                         <>
                             <Route path="/login" component={Login}></Route>
                             <Route path="/signin" component={Signin}></Route>
