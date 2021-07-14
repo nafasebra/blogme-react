@@ -9,14 +9,14 @@ function Login() {
     let txtUsername, txtPassword;
     let UContext = useContext(UserContext);
 
-    let log_in = () => {
+    let loginfunc = () => {
         UContext.dispatch({
             type: 'LogIn',
             payload: {
                 username: txtUsername,
                 password: txtPassword
             }
-        })
+        });
     }
 
     return (
@@ -51,8 +51,8 @@ function Login() {
                         placeholder="type a password" />
                 </div>
                 <Link to="/"
-                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-                     onClick={() => log_in()}>LOG IN</Link>
+                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:shadow-outline w-full"
+                     onClick={() => loginfunc()}>LOG IN</Link>
                 <div className="text-center p-3">
                     <Link to="/signin" className="text-blue-500">Have not a Account?</Link>
                 </div>

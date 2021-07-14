@@ -91,7 +91,7 @@ export default function App() {
 
     // add initial value in state UserReducer file
     const [userState, dispatch] = useReducer(UserReducer, {
-        users: [],
+        user: [],
         currentUser: {},
         isLogining: false
     })

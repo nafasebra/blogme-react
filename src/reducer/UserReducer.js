@@ -12,9 +12,10 @@ export default UserReducer;
 function SignIn(state, action){
     let {username, email, password} = action.payload;
 
+    console.log(state);
     return {
-        users: [
-            ...state.users,
+        user: [
+            ...state.user,
             {
                 name: username,
                 password: password,
@@ -32,27 +33,29 @@ function SignIn(state, action){
 function LogIn(state, action){
     let {username, password} = action.payload;
 
-    console.log('state in login method reducer...');
-    console.log(state)
-    // state.users.forEach(item => {
-    //     if(username === item.name && password === item.password){
-    //         return { 
-    //             users: [...state.users],
-    //             currectUser: {
-    //                 name: username,
-    //                 password: password
-    //             },
-    //             isLogining: true 
-    //         }
-    //     } else {
-    //         alert("Please Enter current username and password");
-    //     }
-    // })
+    state.user.forEach(item => {
+        if(username === item.name && password === item.password){
+            return { 
+                user: [
+                    ...state.user
+                ],
+                currectUser: {
+                    name: username,
+                    password: password
+                },
+                isLogining: true 
+            }
+        } else {
+            alert("Please Enter current username and password");
+        }
+    })
 }
 
 function LogOut(state){
     return{
-        ...state.users,
+        user: [
+            ...state.user
+        ],
         currectUser: {},
         isLogining: false
     }
