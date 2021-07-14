@@ -1,9 +1,13 @@
 function UserReducer(state, action){
     switch (action.type) {
-        case "SignIn": return SignIn(state, action);
-        case "LogIn": return LogIn(state, action);
-        case "LogOut": return LogOut(state);
-        default: return state;
+        case "SignIn": 
+            return SignIn(state, action);
+        case "LogIn": 
+            return LogIn(state, action);
+        case "LogOut": 
+            return LogOut(state);
+        default: 
+            return state;
     }
 }
 
@@ -35,7 +39,7 @@ function LogIn(state, action){
 
     state.user.forEach(item => {
         if(username === item.name && password === item.password){
-            return { 
+            return {
                 user: [
                     ...state.user
                 ],
@@ -43,11 +47,10 @@ function LogIn(state, action){
                     name: username,
                     password: password
                 },
-                isLogining: true 
+                isLogining: true
             }
-        } else {
-            alert("Please Enter current username and password");
         }
+
     })
 }
 
