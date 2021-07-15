@@ -112,6 +112,10 @@ export default function App() {
                             <Header />
                             <Posts />
                         </Route>
+                        <Route path="/about" component={Aboutme} />
+                        <Route path="/contact" component={ContactMe} />
+                        <Route path="/post/:postName" component={PostContent}/>
+                        <Route path="*" component={NotFound} />
                         {
                             userState.isLogining === false ?
                             <>
@@ -120,10 +124,6 @@ export default function App() {
                             </>
                             : null
                         }
-                        <Route path="/about" component={Aboutme} />
-                        <Route path="/contact" component={ContactMe} />
-                        <Route path="/post/:postName" component={PostContent}/>
-                        <Route path="*" component={NotFound} />
                     </Switch>
 
                     <Footer />

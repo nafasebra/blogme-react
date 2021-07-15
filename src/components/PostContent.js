@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import BlogContext from '../context/BlogContext';
 
@@ -10,9 +10,11 @@ export default function PostContent() {
 
     useEffect(() => {
         window.scrollTo(0 , 0);
-    })
+    }, [])
 
     let currentBlog = blog.filter(item => item.headText === postName);
+
+    const [like, setLike] = useState(false);
 
     return (
         <div className="flex justify-center container mx-auto pt-10 pb-10 p-3">
@@ -57,6 +59,13 @@ export default function PostContent() {
                     Nisi vitae suscipit tellus mauris a diam maecenas sed. Placerat duis ultricies lacus sed turpis tincidunt id aliquet.`
 
                 </p>
+
+                <button className="btn mt-5"
+                        onClick={() => setLike(!like)}>
+                    <svg className="w-8 h-8" 
+                        fill={like ? '#e74c3c' : 'none'} 
+                        stroke={like ? '#e74c3c' : '#707070'} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                </button>
             </div>
         </div>
     )
