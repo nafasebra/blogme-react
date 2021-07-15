@@ -15,9 +15,9 @@ import ContactMe from './components/ContactMe';
 import PostContent from './components/PostContent';
 
 // INCLUDE IMAGE
-import img1 from './img/1.jpg';
-import img2 from './img/2.jpg';
-import img3 from './img/3.jpg';
+import img1 from './assets/img/1.jpg';
+import img2 from './assets/img/2.jpg';
+import img3 from './assets/img/3.jpg';
 
 // INCLUDE CONTEXT 
 import BlogContext from './context/BlogContext';

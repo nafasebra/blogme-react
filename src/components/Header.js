@@ -1,5 +1,5 @@
 import React from 'react'
-import bImage from './../img/background.png';
+import bImage from './../assets/img/background.png';
 
 export default function header() {
     return (
