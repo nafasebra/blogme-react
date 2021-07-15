@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 
 import { Link } from 'react-router-dom'
-
 import UserContext from '../../context/UserContext';
 
 function Login() {
@@ -17,6 +16,8 @@ function Login() {
                 password: txtPassword
             }
         });
+        console.log("log context ofter login user...");
+        console.log(UContext.user);
     }
 
     return (
@@ -52,7 +53,8 @@ function Login() {
                 </div>
                 <Link to="/"
                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:shadow-outline w-full"
-                     onClick={() => loginfunc()}>LOG IN</Link>
+                     onClick={() => loginfunc()}>
+                         LOG IN</Link>
                 <div className="text-center p-3">
                     <Link to="/signin" className="text-blue-500">Have not a Account?</Link>
                 </div>
