@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export default function Aboutme() {
+function Aboutme() {
     return (
         <div className="flex justify-center container mx-auto pt-10 pb-10 p-3">
             <div style={{maxWidth: "700px"}}>
@@ -44,3 +44,5 @@ export default function Aboutme() {
         </div>
     )
 }
+
+export default Aboutme;
