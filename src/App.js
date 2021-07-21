@@ -119,9 +119,17 @@ export default function App() {
                         <Route path="/contact" component={ContactMe} />
                         <Route path="/post/:postName" component={PostContent}/>
                         
-                        {userState.isLogining === false && <Route path="/login" ><Login /></Route>}
-                        {userState.isLogining === false && <Route path="/signin"><Signin /></Route>}
-
+                        {
+                            userState.isLogining === false && 
+                            <>
+                                <Route path="/login" >
+                                    <Login />
+                                </Route>
+                                <Route path="/signin">
+                                    <Signin />
+                                </Route>
+                            </>
+                        }
                         
                         <Route path="*" component={NotFound} />
                     </Switch>
