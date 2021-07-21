@@ -28,7 +28,7 @@ function SignIn(state, action){
                 email: email
             }
         ],
-        currectUser: {
+        currentUser: {
             name: username,
             password: password
         },
@@ -56,7 +56,7 @@ function LogIn(state, action) {
             user: [
                 ...state.user
             ],
-            currectUser: {
+            currentUser: {
                 name: username,
                 password: password
             },
@@ -65,7 +65,7 @@ function LogIn(state, action) {
     } else {
         return {
             user: [ ...state.user ],
-            currectUser: {},
+            currentUser: {},
             isLogining: false
         }
     }
@@ -78,7 +78,7 @@ function LogOut(state){
 
     return{
         user: [ ...state.user ],
-        currectUser: {},
+        currentUser: {},
         isLogining: false
     }
 }
