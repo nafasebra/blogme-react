@@ -41,11 +41,14 @@ function LogIn(state, action) {
 
     console.log("log the state when before log in user...");
     console.log(state);
-    var isUser = false;
+    let isUser = false;
 
-    state.user.forEach(item => {
+    state.user.find(item => {
         if(username === item.name && password === item.password) 
             isUser = true;
+        else{
+            alert('oooops! Please enter current username or password...')
+        }
     })
 
     if(isUser === true) {
