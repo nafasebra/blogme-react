@@ -65,7 +65,7 @@ function Navbar() {
                                     <div className="absolute right-0 top-6 text-gray-700 bg-white shadow-2xl pt-3"
                                         style={{width: "170px"}}>
                                         <p className="p-3"> {currentUser.name} </p>
-                                        <Link to="#" className="flex text-xs px-3 py-2 hover:bg-gray-200">
+                                        <Link to="/addpost" className="flex text-xs px-3 py-2 hover:bg-gray-200">
                                             <svg className="w-4 h-4 pr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                                             Add post
                                         </Link>

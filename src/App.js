@@ -38,7 +38,8 @@ export default function App() {
 
     return (
         <BlogContext.Provider value={{
-            blog: Blog
+            blog: Blog,
+            setBlog: setBlog
         }}>
             <UserContext.Provider value={{
                 user: userState,
