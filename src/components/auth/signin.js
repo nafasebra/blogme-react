@@ -68,7 +68,7 @@ function Signin() {
                         placeholder="type a password" />
                 </div>
                 <Link to="/" 
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:shadow-outline w-full" 
+                    className="text-center block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:shadow-outline w-full" 
                     onClick={() => signinfunc()}>
                         SIGN IN</Link>
                 <div className="text-center p-3">
