@@ -11,6 +11,7 @@ import Login from './components/auth/Login';
 import Signin from './components/auth/Signin';
 import NotFound from './components/NotFound';
 import ContactMe from './components/ContactMe';
+import AddNewPost from './components/AddNewPost';
 import PostContent from './components/PostContent';
 
 // INCLUDE CONTEXT 
@@ -55,6 +56,7 @@ export default function App() {
                         <Route path="/about" component={Aboutme} />
                         <Route path="/contact" component={ContactMe} />
                         <Route path="/post/:postName" component={PostContent}/>
+                        <Route path="/addpost" component={AddNewPost}/>
                         
                         {
                             userState.isLogining === false && 

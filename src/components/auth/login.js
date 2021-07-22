@@ -9,15 +9,17 @@ function Login() {
     let UContext = useContext(UserContext);
 
     let loginfunc = () => {
-        UContext.dispatch({
-            type: 'LogIn',
-            payload: {
-                username: txtUsername,
-                password: txtPassword
-            }
-        });
-        console.log("log context ofter login user...");
-        console.log(UContext.user);
+        if (txtUsername !== "" && txtPassword !== ""){
+            UContext.dispatch({
+                type: 'LogIn',
+                payload: {
+                    username: txtUsername,
+                    password: txtPassword
+                }
+            });
+        } else {
+            alert("Please fill the inputs!");
+        }
     }
 
     return (

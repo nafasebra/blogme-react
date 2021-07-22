@@ -6,18 +6,24 @@ import UserContext from '../../context/UserContext';
 
 function Signin() {
     
-    let txtUsername, txtPassword, txtEmail;
+    let txtUsername = "", 
+        txtPassword ="", 
+        txtEmail = "";
     let UContext = useContext(UserContext);
 
     let signinfunc = () => {
-        UContext.dispatch({ 
-            type: 'SignIn',
-            payload: {
-                username: txtUsername,
-                password: txtPassword,
-                email: txtEmail
-            }    
-        });
+        if (txtUsername !== "" && txtEmail !== "" && txtPassword !== "" ){
+            UContext.dispatch({ 
+                type: 'SignIn',
+                payload: {
+                    username: txtUsername,
+                    password: txtPassword,
+                    email: txtEmail
+                }    
+            });
+        } else {
+            alert("Please fill the inputs!")
+        }
     }
 
 
@@ -45,9 +51,8 @@ function Signin() {
                         for="txtSignInEmail">
                         Email
                     </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                    <input type="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                         id="txtSignInEmail" 
-                        type="email" 
                         onChange={(e) => txtEmail = e.target.value} 
                         placeholder="ex: example@domain.com" />
                 </div>
