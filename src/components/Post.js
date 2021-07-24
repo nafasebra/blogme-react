@@ -9,7 +9,9 @@ export default function post({id, tags, image, headText, description}) {
     return (
         <>
             <div className="rounded overflow-hidden shadow-lg">
-                <img className="w-full" src={image} alt={headText} />
+                <Link to={`/post/${headText}`}>
+                    <img className="w-full" src={image} alt={headText} />
+                </Link>
                 <div className="px-6 py-4">
                     <Link to={`/post/${headText}`} className="font-bold text-xl mb-2">{headText}</Link>
                     <p className="text-gray-700 text-base">{description}</p>
