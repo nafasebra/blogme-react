@@ -16,4 +16,4 @@ for clone the Repository:
 git clone https://github.com/nafasebra/blogwebsite-react
 ```
 
-Click to view [Demo](https://nafasebra.github.io/blogwebsite-react/)
+Click to view [Demo](https://nafasebra.github.io/blogme-react/)
