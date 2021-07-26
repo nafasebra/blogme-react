@@ -13,7 +13,7 @@ Feature:
 
 for clone the Repository:
 ```
-git clone https://github.com/nafasebra/blogwebsite-react
+git clone https://github.com/nafasebra/blogme-react
 ```
 
 Click to view [Demo](https://nafasebra.github.io/blogme-react/)
