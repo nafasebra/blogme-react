@@ -1,11 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 
 import BlogContext from '../context/BlogContext';
+import UserContext from '../context/UserContext';
 
 import { useParams, Link } from 'react-router-dom'
 
 export default function PostContent() {
-    let { postName } = useParams();
+
+    let UContext = useContext(UserContext);
+
+    let { postName } = useParams(); 
     const { blog } = useContext(BlogContext);
 
     useEffect(() => {
@@ -16,7 +20,7 @@ export default function PostContent() {
 
     const [like, setLike] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    const [userLogged] = useState(false);
+    const [userLogged] = useState(UContext.user.isLogining || false);
 
     return (
         <div className="flex justify-center container mx-auto pt-10 pb-10 p-3">
