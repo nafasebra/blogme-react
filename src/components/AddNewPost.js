@@ -32,6 +32,7 @@ function AddNewPost() {
                 usersLiked: []
             }
         ])
+
     }
 
     return (
