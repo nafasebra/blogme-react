@@ -7,10 +7,11 @@ import { useParams, Link } from 'react-router-dom'
 
 export default function PostContent() {
 
-    let UContext = useContext(UserContext);
-
     let { postName } = useParams(); 
+
     const { blog } = useContext(BlogContext);
+
+    let UContext = useContext(UserContext);
 
     useEffect(() => {
         window.scrollTo(0 , 0);
@@ -20,7 +21,20 @@ export default function PostContent() {
 
     const [like, setLike] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    const [userLogged] = useState(UContext.user.isLogining || false);
+    const [userLogged] = useState(UContext.user.isLogining || false); 
+
+    // const handledLike = () => {
+    //     if(userLogged) {
+    //         setLike(!like);
+    //         if(like){
+    //             currentBlog[0].usersLiked.push(UContext.user.currentUser)
+    //         } else {
+    //             currentBlog[0].usersLiked.push(UContext.user.currentUser)
+    //         }
+    //     }
+    //     else
+    //         setShowModal(true);
+    // }
 
     return (
         <div className="flex justify-center container mx-auto pt-10 pb-10 p-3">

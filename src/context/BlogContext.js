@@ -1,7 +1,8 @@
 import React from 'react'
 
 const BlogContext = React.createContext({
-    blog: []
+    blog: [],
+    setBlog: () => {}
 })
 
 export default BlogContext;
