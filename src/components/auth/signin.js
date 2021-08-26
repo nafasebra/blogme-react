@@ -1,37 +1,27 @@
 import React, { useContext, useState } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 import UserContext from '../../context/UserContext';
 
 function Signin() {
+
+    const history = useHistory();
 
     const [errorValidation, setErrorValidation] = useState({
         username: false,
         email: false
     })
     
-    let txtUsername = "", 
-        txtPassword ="", 
-        txtEmail = "";
+    let txtUsername, 
+        txtPassword, 
+        txtEmail;
     let UContext = useContext(UserContext);
 
-    let signinfunc = () => {
-        if (txtUsername !== "" && txtEmail !== "" && txtPassword !== "" ){
-            UContext.dispatch({ 
-                type: 'SignIn',
-                payload: {
-                    username: txtUsername,
-                    password: txtPassword,
-                    email: txtEmail
-                }    
-            });
-        } else {
-            alert("Please fill the inputs!")
-        }
-    }
+    
 
     const validationUsername = (e) => {
+        txtUsername = e.target.value;
         let usernameRegex = /^[a-zA-Z0-9\-]+$/;
         let value = e.target.value;
         if(value.match(usernameRegex))
@@ -47,6 +37,7 @@ function Signin() {
     }
 
     const validationEmail = (e) => {
+        txtEmail = e.target.value;
         let emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         let value = e.target.value;
         if(value.match(emailRegex))
@@ -59,6 +50,24 @@ function Signin() {
                 ...errorValidation,
                 email: true
             })
+    }
+
+    const signinfunc = () => {
+        if(errorValidation.username === false && errorValidation.email === false){
+            if (txtUsername !== "" && txtEmail !== "" && txtPassword !== "" ){
+                UContext.dispatch({ 
+                    type: 'SignIn',
+                    payload: {
+                        username: txtUsername,
+                        password: txtPassword,
+                        email: txtEmail
+                    }    
+                });
+                history.push('/');
+            } else {
+                alert("Please fill inputs!")
+            }
+        }
     }
 
     return (
@@ -78,10 +87,7 @@ function Signin() {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                         id="txtSigninUsername" 
                         type="text" 
-                        onChange={(e) => {
-                            txtUsername = e.target.value;
-                            validationUsername(e);
-                        }} 
+                        onChange={(e) => validationUsername(e)} 
                         placeholder="ex: nafas" 
                     />
                     <p 
@@ -102,10 +108,7 @@ function Signin() {
                         type="email" 
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                         id="txtSignInEmail" 
-                        onChange={(e) => {
-                            txtEmail = e.target.value;
-                            validationEmail(e);
-                        }} 
+                        onChange={(e) => validationEmail(e)} 
                         placeholder="ex: example@domain.com" 
                         required
                     />
@@ -131,10 +134,12 @@ function Signin() {
                         placeholder="type a password" 
                     />
                 </div>
-                <Link to="/" 
+                <button  
                     className="text-center block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:shadow-outline w-full" 
-                    onClick={() => signinfunc()}>
-                        SIGN IN</Link>
+                    onClick={() => signinfunc()}
+                >
+                    SIGN IN
+                </button>
                 <div className="text-center p-3">
                     <Link to="/login" className="text-blue-500">Have a Account?</Link>
                 </div>

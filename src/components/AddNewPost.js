@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 import img1 from '../assets/img/1.jpg';
 
 import BlogContext from '../context/BlogContext';
-import UserContext from '../context/UserContext';
+// import UserContext from '../context/UserContext';
 
 
 function AddNewPost() {
+
+    const history = useHistory();
 
     let { blog, setBlog } = useContext(BlogContext);
     // let UContext = useContext(UserContext);
@@ -32,7 +36,7 @@ function AddNewPost() {
                 usersLiked: []
             }
         ])
-
+        history.push('/');
     }
 
     return (

@@ -1,25 +1,49 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import UserContext from '../../context/UserContext';
 
 function Login() {
 
-    let txtUsername, txtPassword;
-    let UContext = useContext(UserContext);
+    const history = useHistory();
+
+    const [errorValidation, setErrorValidation] = useState({
+        username: false
+    })
+
+    let txtUsername,
+        txtPassword,
+        UContext = useContext(UserContext);
 
     let loginfunc = () => {
-        if (txtUsername !== "" && txtPassword !== ""){
-            UContext.dispatch({
-                type: 'LogIn',
-                payload: {
-                    username: txtUsername,
-                    password: txtPassword
-                }
-            });
-        } else {
-            alert("Please fill the inputs!");
-        }
+        if(errorValidation.username === false)
+            if (txtUsername !== "" && txtPassword !== ""){
+                UContext.dispatch({
+                    type: 'LogIn',
+                    payload: {
+                        username: txtUsername,
+                        password: txtPassword
+                    }
+                });
+                history.push('/');
+            } else {
+                alert("Please fill inputs!");
+            }
+    }
+
+    const validationUsername = (e) => {
+        let usernameRegex = /^[a-zA-Z0-9\-]+$/;
+        let value = e.target.value;
+        if(value.match(usernameRegex))
+            setErrorValidation({
+                ...errorValidation,
+                username: false
+            })
+        else
+            setErrorValidation({
+                ...errorValidation,
+                username: true
+            })
     }
 
     return (
@@ -36,11 +60,24 @@ function Login() {
                         for="txtLoginUsername">
                         Username
                     </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                        id="txtLoginUsername" 
+                    <input 
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                        id="txtSigninUsername" 
                         type="text" 
-                        onChange={(e) => txtUsername = e.target.value}
-                        placeholder="ex: nafas" />
+                        onChange={(e) => {
+                            txtUsername = e.target.value;
+                            validationUsername(e);
+                        }} 
+                        placeholder="ex: nafas" 
+                    />
+                    <p 
+                        className="text-red-500 text-sm my-1"
+                        style={{
+                            display: errorValidation.username ? 'block' : 'none'
+                        }}
+                    >
+                        incurrect username
+                    </p>
                 </div>
                 <div className="mb-6">
                     <label className="block text-gray-700 text-sm font-bold mb-2" 
