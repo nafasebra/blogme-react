@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router';
 // INCLUDE COMPONENT
 import Navbar from './components/Navbar';
 import Header from './components/Header';
+import LastPosts from './components/LastPosts';
 import Posts from './components/Posts';
 import Footer from './components/Footer';
 import Aboutme from './components/Aboutme';
@@ -51,6 +52,7 @@ export default function App() {
                     <Switch>
                         <Route path="/" exact>
                             <Header />
+                            <LastPosts />
                             <Posts />
                         </Route>
                         

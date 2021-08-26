@@ -22,7 +22,7 @@ function Signin() {
 
     const validationUsername = (e) => {
         txtUsername = e.target.value;
-        let usernameRegex = /^[a-zA-Z0-9\-]+$/;
+        let usernameRegex = /^[a-zA-Z0-9-]+$/;
         let value = e.target.value;
         if(value.match(usernameRegex))
             setErrorValidation({
